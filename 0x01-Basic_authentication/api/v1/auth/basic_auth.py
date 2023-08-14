@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """creates a class basic auth"""
 
 
@@ -6,6 +6,7 @@ from api.v1.auth.auth import Auth
 from models.user import User
 from typing import TypeVar
 import base64 as b64
+import binascii
 
 
 class BasicAuth(Auth):
@@ -71,3 +72,4 @@ class BasicAuth(Auth):
         decoded_auth_header = self.decode_base64_authorization_header(
             base64_auth_header)
         user_credentials = self.extract_user
+        
