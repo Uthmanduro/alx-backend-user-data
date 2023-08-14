@@ -1,10 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """creates a class basic auth"""
 
 
 from api.v1.auth.auth import Auth
 from models.user import User
 from typing import TypeVar
+import base64 as b64
 
 
 class BasicAuth(Auth):
@@ -29,7 +30,7 @@ class BasicAuth(Auth):
         if type(base64_authorization_header) is not str:
             return None
         try:
-            return base64_authorization_header.decode('utf-8')
+            return b64.b64decode(base64_authorization_header).decode('utf-8')
         except Exception:
             return None
 
