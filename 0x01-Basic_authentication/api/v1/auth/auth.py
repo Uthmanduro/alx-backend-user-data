@@ -22,7 +22,7 @@ class Auth:
             return None
         if 'Authorization' not in request.headers:
             return None
-        return request.authorization
+        return request.headers['Authorization']
 
     def current_user(self, request=None) -> TypeVar('User'):
         """method that handles current user"""
