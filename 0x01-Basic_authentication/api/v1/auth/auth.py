@@ -20,7 +20,7 @@ class Auth:
         """method that handles authorization header"""
         if request is None:
             return None
-        if request.authorization is None:
+        if 'Authorization' not in request.headers:
             return None
         return request.authorization
 
